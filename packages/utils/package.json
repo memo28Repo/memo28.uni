@@ -1,8 +1,10 @@
 {
-  "name": "@memo28.uni/wifi",
+  "name": "@memo28.uni/utils",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "module": "./dist/index.js",
+  "types": "./dts/index.d.ts",
   "scripts": {
     "test": "vitest run",
     "build:cjs": "rm -rf ./lib && tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true",
@@ -20,7 +22,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dcloudio/types": "^3.4.3",
-    "@memo28/utils": "^1.2.3"
+    "@dcloudio/types": "^3.4.3"
   }
 }
