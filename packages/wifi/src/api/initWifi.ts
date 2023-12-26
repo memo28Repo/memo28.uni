@@ -1,8 +1,16 @@
-import {connectToWifiTrigger, unConnectToWifiTrigger, wifiInitializedSuccessfully} from '../store/init'
-import {config} from './defineConfig'
-import {SNI} from '@memo28/utils'
-import {ERR_CODE, getErrMsg} from "../constant/errorCode";
-import {inApp, inWx, inH5Fn} from '@memo28.uni/utils'
+/*
+ * @Author: @memo28.repo
+ * @Date: 2023-12-24 23:35:47
+ * @LastEditTime: 2023-12-26 23:40:55
+ * @Description: 
+ * @FilePath: /uniRepo/packages/wifi/src/api/initWifi.ts
+ */
+import { inApp, inH5Fn, inWx } from '@memo28.uni/utils';
+import { SNI } from '@memo28/utils';
+import { ERR_CODE, getErrMsg } from "../constant/errorCode";
+import { wifiInitializedSuccessfully } from '../store/init';
+import { config } from './defineConfig';
+import { networkStatusChangeTrigger } from './networkStatusChange';
 
 
 export function wifiFail(err: UniNamespace.WifiError) {
@@ -32,32 +40,15 @@ export function initWifi() {
     })
 }
 
+
+
 function initWifiCore() {
     return new Promise((resolve, reject) => {
         // 如果已初始化成功则直接跳过当前逻辑
         if (wifiInitializedSuccessfully.value) return resolve(true)
-        config.listenToNetworkStatus && uni.onNetworkStatusChange((res) => {
-            if (res.isConnected && res.networkType === 'wifi') {
-                if (connectToWifiTrigger.value) return
-                if (unConnectToWifiTrigger.value) {
-                    unConnectToWifiTrigger.value = false
-                }
-                if (!connectToWifiTrigger.value) {
-                    config.connectToWifi?.();
-                    connectToWifiTrigger.value = true
-                }
-            }
-            if (!res.isConnected || (res.isConnected && res.networkType !== 'wifi')) {
-                if (connectToWifiTrigger.value) {
-                    connectToWifiTrigger.value = false
-                }
-                if (unConnectToWifiTrigger.value) return
-                if (!unConnectToWifiTrigger.value) {
-                    config.unConnectToWifi?.()
-                    unConnectToWifiTrigger.value = true
-                }
-            }
-        })
+
+        networkStatusChangeTrigger.onNetworkStatusChange()
+
         uni.getNetworkType({
             success(res) {
                 if (res.networkType !== 'wifi') return reject(false)
@@ -83,6 +74,60 @@ function initWifiCore() {
     }).then(res => {
         wifiInitializedSuccessfully.value = true
         return res
+    })
+
+}
+
+
+/**
+ * 
+ * 关闭 wifi 模块
+ * 
+ * @public
+ * 
+ */
+export function stopWifi() {
+    return new Promise((resolve, reject) => {
+        inH5Fn(() => {
+            reject()
+            uni.showToast({
+                title: 'h5不支持wifi模块',
+                icon: 'none',
+                duration: 3000,
+            });
+        })
+        inWx(() => {
+            stopWifiCore().then(resolve).catch(reject)
+        })
+
+        inApp(() => {
+            stopWifiCore().then(resolve).catch(reject)
+        })
+    })
+
+}
+
+function stopWifiCore() {
+    return new Promise((resolve, reject) => {
+        uni.stopWifi({
+            success(res) {
+                if (!SNI(res.errCode, ERR_CODE.NORMAL)) {
+                    if (config.debugger) console.log(res)
+                    wifiFail(res)
+                    reject()
+                } else {
+                    resolve(true)
+                    networkStatusChangeTrigger.offNetworkStatusChange()
+                }
+            },
+            fail(err) {
+                if (!SNI(err.errCode, ERR_CODE.NORMAL)) {
+                    if (config.debugger) console.log(err)
+                    wifiFail(err)
+                    reject()
+                }
+            }
+        })
     })
 
 }
