@@ -22,5 +22,8 @@
   "dependencies": {
     "@dcloudio/types": "^3.4.3",
     "@memo28/utils": "^1.2.3"
+  },
+  "devDependencies": {
+    "vue": "^3.4.3"
   }
 }

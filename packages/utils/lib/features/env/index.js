@@ -17,7 +17,8 @@ function inH5Fn(fn) {
 }
 exports.inH5Fn = inH5Fn;
 /**
- * H5外部函数
+ * H5外部函数才会执行
+ *
  * @param {Function} fn - 要执行的函数
  * @paramType T - 返回值类型
  * @returns {T} - 返回函数执行结果

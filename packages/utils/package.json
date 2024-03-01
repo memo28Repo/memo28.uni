@@ -1,6 +1,6 @@
 {
   "name": "@memo28.uni/utils",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
@@ -19,9 +19,12 @@
     "links": "pnpm link --global"
   },
   "keywords": [],
-  "author": "",
+  "author": "memo.repo",
   "license": "ISC",
   "dependencies": {
     "@dcloudio/types": "^3.4.3"
+  },
+  "devDependencies": {
+    "vue": "^3.4.3"
   }
 }

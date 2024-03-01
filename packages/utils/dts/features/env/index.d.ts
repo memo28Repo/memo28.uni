@@ -10,7 +10,8 @@ import { fn } from '@memo28/types';
  */
 export declare function inH5Fn<T>(fn: fn<unknown[], T>): T;
 /**
- * H5外部函数
+ * H5外部函数才会执行
+ *
  * @param {Function} fn - 要执行的函数
  * @paramType T - 返回值类型
  * @returns {T} - 返回函数执行结果
