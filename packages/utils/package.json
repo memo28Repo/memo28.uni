@@ -25,6 +25,10 @@
     "@dcloudio/types": "^3.4.3",
     "@memo28/types": "^1.1.8"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "devDependencies": {
     "vue": "^3.4.3"
   }

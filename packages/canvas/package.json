@@ -23,5 +23,9 @@
   "license": "ISC",
   "dependencies": {
     "@dcloudio/types": "^3.4.8"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
 }

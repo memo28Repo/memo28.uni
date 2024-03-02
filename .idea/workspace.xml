@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="" />
+    <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/packages/canvas/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/canvas/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/wifi/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/wifi/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,6 +130,7 @@
       <workItem from="1709303123615" duration="601000" />
       <workItem from="1709303753614" duration="830000" />
       <workItem from="1709349764382" duration="1242000" />
+      <workItem from="1709352010611" duration="146000" />
     </task>
     <servers />
   </component>

@@ -24,6 +24,10 @@
     "@memo28.uni/utils": "^0.0.2",
     "@memo28/utils": "^1.2.3"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "devDependencies": {
     "vue": "^3.4.3"
   }
