@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/canvas/src/features/radius/background.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/canvas/src/features/radius/image.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uniRepo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/canvas/src/features/radius/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/canvas/src/features/radius/background.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/canvas/src/features/radius/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/canvas/src/features/radius/image.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +27,6 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectStartupLocalConfiguration">
-    <configurations>
-      <configuration id="npm.uniRepo &gt; build:watch" name="uniRepo &gt; build:watch" />
-      <configuration id="npm.uniRepo &gt; links" name="uniRepo &gt; links" />
-    </configurations>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,7 +35,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/devops/Desktop/monorepo/uniRepo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -137,7 +128,8 @@
       <workItem from="1709302205855" duration="16000" />
       <workItem from="1709302274519" duration="646000" />
       <workItem from="1709303123615" duration="601000" />
-      <workItem from="1709303753614" duration="599000" />
+      <workItem from="1709303753614" duration="830000" />
+      <workItem from="1709349764382" duration="819000" />
     </task>
     <servers />
   </component>
