@@ -1,0 +1,27 @@
+{
+  "name": "@memo28.uni/canvas",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./dist/index.js",
+  "types": "./dts/index.d.ts",
+  "scripts": {
+    "test": "vitest run",
+    "build:cjs": "rm -rf ./lib && tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true",
+    "build:es": "rm -rf ./dist && tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true",
+    "build:cjs:watch": "tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true --watch",
+    "build:es:watch": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true --watch",
+    "build": "pnpm build:cjs && pnpm build:es",
+    "build:watch": "pnpm build:cjs:watch && pnpm build:es:watch",
+    "build:md": "pnpm build && api-extractor run --local --verbose && sh mv.sh",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "links": "pnpm link --global"
+  },
+  "keywords": [],
+  "author": "memo.repo",
+  "license": "ISC",
+  "dependencies": {
+    "@dcloudio/types": "^3.4.8"
+  }
+}
