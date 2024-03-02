@@ -54,6 +54,9 @@ importers:
       '@dcloudio/types':
         specifier: ^3.4.3
         version: 3.4.3
+      '@memo28/types':
+        specifier: ^1.1.8
+        version: 1.1.8(@vitest/ui@0.27.3)(jsdom@21.1.0)
     devDependencies:
       vue:
         specifier: ^3.4.3
@@ -64,6 +67,9 @@ importers:
       '@dcloudio/types':
         specifier: ^3.4.3
         version: 3.4.3
+      '@memo28.uni/utils':
+        specifier: ^0.0.2
+        version: link:../utils
       '@memo28/utils':
         specifier: ^1.2.3
         version: 1.2.3(@vitest/ui@0.27.3)(jsdom@21.1.0)
@@ -548,6 +554,24 @@ packages:
 
   /@memo28/types@1.1.5(@vitest/ui@0.27.3)(jsdom@21.1.0):
     resolution: {integrity: sha512-s9AxXwwB6TtLYlkojLQIQJtCJ3EUhOCdNBXT2dVKmpfNwj8AOh+y3BU0VjxEiUu1gLiATCTxY5fDeXLsOMhV6w==}
+    dependencies:
+      '@memo28/logs': 0.1.1(@vitest/ui@0.27.3)(jsdom@21.1.0)
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - happy-dom
+      - jsdom
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: false
+
+  /@memo28/types@1.1.8(@vitest/ui@0.27.3)(jsdom@21.1.0):
+    resolution: {integrity: sha512-5H6k9y857QN1smlSL2Ml2Y6Il3+SfX5fLapMvjuGMyeGmS9kK00BOTl6n33Y7lJJ7wq7YjmWdPuMLJNVWjENrA==}
     dependencies:
       '@memo28/logs': 0.1.1(@vitest/ui@0.27.3)(jsdom@21.1.0)
     transitivePeerDependencies:

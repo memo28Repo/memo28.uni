@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/canvas/src/features/radius/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/canvas/src/features/radius/background.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/canvas/src/features/radius/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/canvas/src/features/radius/image.ts" afterDir="false" />
-    </list>
+    <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +125,7 @@
       <workItem from="1709302274519" duration="646000" />
       <workItem from="1709303123615" duration="601000" />
       <workItem from="1709303753614" duration="830000" />
-      <workItem from="1709349764382" duration="819000" />
+      <workItem from="1709349764382" duration="1242000" />
     </task>
     <servers />
   </component>

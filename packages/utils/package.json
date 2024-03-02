@@ -22,7 +22,8 @@
   "author": "memo.repo",
   "license": "ISC",
   "dependencies": {
-    "@dcloudio/types": "^3.4.3"
+    "@dcloudio/types": "^3.4.3",
+    "@memo28/types": "^1.1.8"
   },
   "devDependencies": {
     "vue": "^3.4.3"
