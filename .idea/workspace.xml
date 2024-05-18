@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/packages/canvas/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/canvas/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/script/src/and/buildParams.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/script/src/buildScript.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/script/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/script/src/ios/buildParams.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/script/src/parseConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +41,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/devops/Desktop/monorepo/uniRepo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/qiushijie/Desktop/monorepo/memo28.uni&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -45,10 +52,15 @@
     &quot;npm.uniRepo &gt; installAll.executor&quot;: &quot;Run&quot;,
     &quot;npm.uniRepo &gt; links.executor&quot;: &quot;Run&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.startup.tasks&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/devops/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/233.13135.92/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/script/src/ios" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.uniRepo &gt; build:watch">
     <configuration name="uniRepo &gt; build" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -100,6 +112,13 @@
       <item itemvalue="npm.uniRepo &gt; build" />
     </list>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -129,6 +148,9 @@
       <workItem from="1709303753614" duration="830000" />
       <workItem from="1709349764382" duration="1242000" />
       <workItem from="1709352010611" duration="751000" />
+      <workItem from="1716004216016" duration="9000" />
+      <workItem from="1716004347076" duration="2000" />
+      <workItem from="1716015622030" duration="2281000" />
     </task>
     <servers />
   </component>

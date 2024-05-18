@@ -37,7 +37,8 @@
     "@commitlint/config-conventional": "^17.6.1",
     "@microsoft/api-extractor": "^7.34.4",
     "cz-customizable": "^7.0.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "zx": "^8.1.0"
   },
-  "packageManager": "pnpm@7.26.3"
+  "packageManager": "pnpm@9.1.1"
 }
