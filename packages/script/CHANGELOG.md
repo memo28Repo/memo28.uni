@@ -1,5 +1,11 @@
 # @memo28.uni/script
 
+## 0.0.3
+
+### Patch Changes
+
+- 完善 script d.ts 声明文件
+
 ## 0.0.2
 
 ### Patch Changes

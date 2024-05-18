@@ -1,6 +1,6 @@
 {
   "name": "@memo28.uni/script",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
