@@ -13,14 +13,14 @@ export declare class DefineJumpCallback {
     fail(cb?: (res: CallbackResult) => void): this;
     complete(cb?: (res: CallbackResult) => void): this;
 }
-type navigateBackTypes = typeof uni.navigateBack;
-type navigateToTypes = typeof uni.navigateTo;
-type reLaunchTypes = typeof uni.reLaunch;
-type redirectTo = typeof uni.redirectTo;
-export type jumpMethod = navigateBackTypes | navigateToTypes | reLaunchTypes | redirectTo | undefined;
-export type jumpMethodName = "navigateBack" | "navigateTo" | "reLaunch" | "redirectTo";
-export type getJumpParametersAccordingToJumpMethod<T extends jumpMethodName> = T extends "navigateBack" ? navigateBackTypes : T extends "navigateTo" ? navigateToTypes : T extends "reLaunch" ? reLaunchTypes : T extends "redirectTo" ? redirectTo : never;
-export type simpleRouteJumpConfig<T = unknown> = {
+declare type navigateBackTypes = typeof uni.navigateBack;
+declare type navigateToTypes = typeof uni.navigateTo;
+declare type reLaunchTypes = typeof uni.reLaunch;
+declare type redirectTo = typeof uni.redirectTo;
+export declare type jumpMethod = navigateBackTypes | navigateToTypes | reLaunchTypes | redirectTo | undefined;
+export declare type jumpMethodName = "navigateBack" | "navigateTo" | "reLaunch" | "redirectTo";
+export declare type getJumpParametersAccordingToJumpMethod<T extends jumpMethodName> = T extends "navigateBack" ? navigateBackTypes : T extends "navigateTo" ? navigateToTypes : T extends "reLaunch" ? reLaunchTypes : T extends "redirectTo" ? redirectTo : never;
+export declare type simpleRouteJumpConfig<T = unknown> = {
     method: jumpMethodName;
     url?: string;
     preJumpInterceptor?: (params: T) => boolean | {

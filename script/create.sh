@@ -22,7 +22,7 @@ tsc --init
 npm pkg set scripts.build:cjs='rm -rf ./lib && tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true'
 
 #  打包 es 规范代码
-npm pkg set scripts.build:es='rm -rf ./dist ** tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true'
+npm pkg set scripts.build:es='rm -rf ./dist && tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true'
 
 # 打包 commonjs 和 es 规范的代码
 npm pkg set scripts.build="pnpm build:cjs && pnpm build:es"

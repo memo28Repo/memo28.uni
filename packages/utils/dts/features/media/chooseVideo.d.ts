@@ -1,5 +1,5 @@
 /// <reference types="@dcloudio/types" />
-type videoExtension = 'mp4' | 'avi' | 'mkv' | 'wmv' | 'flv' | 'mov' | '3gp' | 'mpeg' | 'webm' | 'ogg' | 'm4v' | 'ts' | 'rm' | 'divx' | 'asf';
+declare type videoExtension = 'mp4' | 'avi' | 'mkv' | 'wmv' | 'flv' | 'mov' | '3gp' | 'mpeg' | 'webm' | 'ogg' | 'm4v' | 'ts' | 'rm' | 'divx' | 'asf';
 export interface chooseVideoOptions extends UniNamespace.ChooseVideoOptions {
     /**
      *
