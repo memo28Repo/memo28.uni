@@ -1,10 +1,11 @@
 {
   "name": "@memo28.uni/script",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
   "types": "./dts/index.d.ts",
+  "type": "module",
   "scripts": {
     "test": "vitest run",
     "build:cjs": "rm -rf ./lib && tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true",
