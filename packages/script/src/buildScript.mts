@@ -1,5 +1,5 @@
-import {getAndParams, AndBuildParams} from './and/buildParams'
-import {IosBuildParams, getIOSParams} from './ios/buildParams'
+import {getAndParams, AndBuildParams} from './and/buildParams.mjs'
+import {IosBuildParams, getIOSParams} from './ios/buildParams.mjs'
 
 
 export interface BuildScriptTypes {

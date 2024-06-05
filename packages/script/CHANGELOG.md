@@ -1,5 +1,11 @@
 # @memo28.uni/script
 
+## 0.0.5
+
+### Patch Changes
+
+- 修改所有文件名后缀打包
+
 ## 0.0.4
 
 ### Patch Changes
