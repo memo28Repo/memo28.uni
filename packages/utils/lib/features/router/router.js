@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SimpleRouteJump = exports.DefineJumpCallback = void 0;
 const page_1 = require("./page");
+const defineConfig_1 = require("./defineConfig");
 class DefineJumpCallback {
     constructor() {
         this.callbackCollection = {};
@@ -26,6 +27,8 @@ const jumpMethodContainer = {
     reLaunch: uni.reLaunch,
     redirectTo: uni.redirectTo
 };
+// 路由组
+const routerMap = new Map();
 /**
  *
  * 对路由跳转的封装
@@ -48,10 +51,24 @@ const jumpMethodContainer = {
  *
  */
 class SimpleRouteJump extends DefineJumpCallback {
-    constructor(url) {
+    constructor(url, meta) {
         super();
         this.simpleRouteJumpConfig = { method: "navigateTo" };
+        this.meta = {};
+        this.meta = Object.assign(Object.assign({}, meta), { instance: this });
         this.setUrl(url);
+        this.addRouterMap(url || '');
+    }
+    addRouterMap(url) {
+        var _a;
+        if (!((_a = url === null || url === void 0 ? void 0 : url.trim()) === null || _a === void 0 ? void 0 : _a.length))
+            return;
+        if (routerMap.has(url))
+            return;
+        routerMap.set(url, this.meta || {});
+    }
+    getRouters() {
+        return routerMap;
     }
     /**
      *
@@ -70,6 +87,7 @@ class SimpleRouteJump extends DefineJumpCallback {
      */
     setUrl(url) {
         this.simpleRouteJumpConfig = Object.assign(Object.assign({}, this.simpleRouteJumpConfig), { url });
+        this.addRouterMap(url || '');
         return this;
     }
     /**
@@ -134,11 +152,50 @@ class SimpleRouteJump extends DefineJumpCallback {
      * @public
      */
     trigger(options) {
+        var _a, _b, _c, _d, _e, _f;
+        const from = (0, page_1.getCurPage)();
+        const toConfig = Object.assign(Object.assign(Object.assign({}, this.meta), options), this.simpleRouteJumpConfig);
+        // @ts-ignore
+        const beforeEach = (_b = (_a = defineConfig_1.defineSimpleRouteJumpConfig === null || defineConfig_1.defineSimpleRouteJumpConfig === void 0 ? void 0 : defineConfig_1.defineSimpleRouteJumpConfig.getBeforeEach) === null || _a === void 0 ? void 0 : _a.call(defineConfig_1.defineSimpleRouteJumpConfig)) === null || _b === void 0 ? void 0 : _b(toConfig, from);
+        if (typeof beforeEach === 'boolean') {
+            if (!beforeEach)
+                return;
+            this.triggerCore(options);
+            return;
+        }
+        if (typeof beforeEach === 'string' && !(beforeEach === null || beforeEach === void 0 ? void 0 : beforeEach.length)) {
+            const route = routerMap.get(beforeEach);
+            if (route) {
+                (_c = route.instance) === null || _c === void 0 ? void 0 : _c.trigger(options);
+                return;
+            }
+            else {
+                (_d = console === null || console === void 0 ? void 0 : console.error) === null || _d === void 0 ? void 0 : _d.call(console, `未找到name为${beforeEach}的路由配置`);
+                return;
+            }
+        }
+        if (typeof beforeEach === 'object') {
+            const route = routerMap.get(beforeEach.name);
+            if (route) {
+                (_e = route.instance) === null || _e === void 0 ? void 0 : _e.trigger(Object.assign(Object.assign({}, options), { mete: Object.assign(Object.assign({}, options === null || options === void 0 ? void 0 : options.mete), beforeEach === null || beforeEach === void 0 ? void 0 : beforeEach.mete) }));
+                return;
+            }
+            else {
+                (_f = console === null || console === void 0 ? void 0 : console.error) === null || _f === void 0 ? void 0 : _f.call(console, `未找到name为${beforeEach.name}的路由配置`);
+                return;
+            }
+        }
+        this.triggerCore(options);
+    }
+    /**
+     * 跳转核心逻辑
+     */
+    triggerCore(options) {
         if (this.simpleRouteJumpConfig.preJumpInterceptor) {
             const preJumpInterceptor = this.simpleRouteJumpConfig.preJumpInterceptor(options === null || options === void 0 ? void 0 : options.mete);
             if (preJumpInterceptor && typeof preJumpInterceptor === "object" && !Reflect.has(preJumpInterceptor, "msg")) {
                 // @ts-ignore
-                return jumpMethodContainer[this.simpleRouteJumpConfig.method](Object.assign(Object.assign(Object.assign({}, this.callbackCollection), options), { url: `${this.simpleRouteJumpConfig.url}${parseParameters((options === null || options === void 0 ? void 0 : options.mete) || {})}` }));
+                return jumpMethodContainer[(options === null || options === void 0 ? void 0 : options.temporaryRedirects) || this.simpleRouteJumpConfig.method](Object.assign(Object.assign(Object.assign({}, this.callbackCollection), options), { url: `${this.simpleRouteJumpConfig.url}${parseParameters((options === null || options === void 0 ? void 0 : options.mete) || {})}` }));
             }
             else {
                 throw new Error(`预跳转验证未通过 ${this.simpleRouteJumpConfig.url}: ${typeof preJumpInterceptor === "object" ? Reflect.get(preJumpInterceptor, "msg") : ""}`);
@@ -146,7 +203,7 @@ class SimpleRouteJump extends DefineJumpCallback {
         }
         if (!this.simpleRouteJumpConfig.preJumpInterceptor) {
             // @ts-ignore
-            return jumpMethodContainer[this.simpleRouteJumpConfig.method](Object.assign(Object.assign(Object.assign({}, this.callbackCollection), options), { url: `${this.simpleRouteJumpConfig.url}${parseParameters((options === null || options === void 0 ? void 0 : options.mete) || {})}` }));
+            return jumpMethodContainer[(options === null || options === void 0 ? void 0 : options.temporaryRedirects) || this.simpleRouteJumpConfig.method](Object.assign(Object.assign(Object.assign({}, this.callbackCollection), options), { url: `${this.simpleRouteJumpConfig.url}${parseParameters((options === null || options === void 0 ? void 0 : options.mete) || {})}` }));
         }
     }
     /**

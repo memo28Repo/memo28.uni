@@ -27,8 +27,25 @@ export declare type simpleRouteJumpConfig<T = unknown> = {
         msg: string;
     };
 };
+/**
+ * 配置路由元数据
+ */
+export interface simpleRouteMeta {
+    /**
+     * 路由Name
+     */
+    name?: string;
+    /**
+     * 当前路由实例
+     */
+    instance: SimpleRouteJump<any>;
+}
 export interface triggerOptions<T extends object> {
     mete: T;
+    /**
+     * 临时跳转方法
+     */
+    temporaryRedirects?: jumpMethodName;
 }
 /**
  *
@@ -53,7 +70,10 @@ export interface triggerOptions<T extends object> {
  */
 export declare class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "navigateTo"> extends DefineJumpCallback {
     private simpleRouteJumpConfig;
-    constructor(url?: string);
+    private meta?;
+    constructor(url?: string, meta?: Partial<simpleRouteMeta>);
+    private addRouterMap;
+    getRouters(): Map<string, Partial<simpleRouteMeta>>;
     /**
      *
      * 设置跳转路径
@@ -122,7 +142,11 @@ export declare class SimpleRouteJump<Mete extends object, T extends jumpMethodNa
      *
      * @public
      */
-    trigger(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, "url">): any;
+    trigger(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, "url">): void;
+    /**
+     * 跳转核心逻辑
+     */
+    private triggerCore;
     /**
      *
      * 判断当前页面是否在该路由下

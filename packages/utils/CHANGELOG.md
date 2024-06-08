@@ -1,5 +1,11 @@
 # @memo28.uni/utils
 
+## 0.0.3
+
+### Patch Changes
+
+- 跳转参数新增单次跳转方法不影响全局跳转，新增全局统一跳转守卫
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@memo28.uni/utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
@@ -12,7 +12,7 @@
     "build:cjs:watch": "tsc --module commonjs --rootDir ./src --outDir ./lib --experimentalDecorators true --watch",
     "build:es:watch": "tsc --module es6 --rootDir ./src --outDir ./dist --experimentalDecorators true --watch",
     "build": "pnpm build:cjs && pnpm build:es",
-    "build:watch": "pnpm build:cjs:watch && pnpm build:es:watch",
+    "build:watch": "pnpm build:cjs:watch & pnpm build:es:watch",
     "build:md": "pnpm build && api-extractor run --local --verbose && sh mv.sh",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
@@ -23,7 +23,8 @@
   "license": "ISC",
   "dependencies": {
     "@dcloudio/types": "^3.4.3",
-    "@memo28/types": "^1.1.8"
+    "@memo28/types": "^1.1.8",
+    "@memo28/utils": "^1.2.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

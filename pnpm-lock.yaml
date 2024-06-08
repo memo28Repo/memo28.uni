@@ -52,6 +52,8 @@ importers:
         specifier: ^3.4.8
         version: 3.4.8
 
+  packages/script: {}
+
   packages/utils:
     dependencies:
       '@dcloudio/types':
@@ -60,6 +62,9 @@ importers:
       '@memo28/types':
         specifier: ^1.1.8
         version: 1.1.8(@vitest/ui@0.27.3)(jsdom@21.1.0)
+      '@memo28/utils':
+        specifier: ^1.2.3
+        version: 1.2.3(@vitest/ui@0.27.3)(jsdom@21.1.0)
     devDependencies:
       vue:
         specifier: ^3.4.3

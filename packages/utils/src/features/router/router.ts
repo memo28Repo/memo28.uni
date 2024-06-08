@@ -1,5 +1,6 @@
-import { obj } from "@memo28/types";
-import { getCurRoutePage } from "./page";
+import {obj} from "@memo28/types";
+import {getCurPage, getCurRoutePage, getPrevPageInstance} from "./page";
+import {defineSimpleRouteJumpConfig} from './defineConfig'
 
 interface CallbackResult {
     /** 错误信息 */
@@ -16,17 +17,17 @@ export class DefineJumpCallback {
     protected callbackCollection: Partial<callbackCollectionTypes> = {};
 
     success(cb?: (res: CallbackResult) => void) {
-        this.callbackCollection = { ...this.callbackCollection, success: cb };
+        this.callbackCollection = {...this.callbackCollection, success: cb};
         return this;
     }
 
     fail(cb?: (res: CallbackResult) => void) {
-        this.callbackCollection = { ...this.callbackCollection, fail: cb };
+        this.callbackCollection = {...this.callbackCollection, fail: cb};
         return this;
     }
 
     complete(cb?: (res: CallbackResult) => void) {
-        this.callbackCollection = { ...this.callbackCollection, complete: cb };
+        this.callbackCollection = {...this.callbackCollection, complete: cb};
         return this;
     }
 }
@@ -68,10 +69,32 @@ export type simpleRouteJumpConfig<T = unknown> = {
     preJumpInterceptor?: (params: T) => boolean | { msg: string }
 }
 
+/**
+ * 配置路由元数据
+ */
+export interface simpleRouteMeta {
+    /**
+     * 路由Name
+     */
+    name?: string,
+    /**
+     * 当前路由实例
+     */
+    instance: SimpleRouteJump<any>
+
+}
+
 export interface triggerOptions<T extends object> {
     // 附加在跳转时的url上
     mete: T;
+    /**
+     * 临时跳转方法
+     */
+    temporaryRedirects?: jumpMethodName
 }
+
+// 路由组
+const routerMap: Map<string, Partial<simpleRouteMeta>> = new Map()
 
 /**
  *
@@ -95,11 +118,26 @@ export interface triggerOptions<T extends object> {
  *
  */
 export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "navigateTo"> extends DefineJumpCallback {
-    private simpleRouteJumpConfig: simpleRouteJumpConfig<Mete> = { method: "navigateTo" };
+    private simpleRouteJumpConfig: simpleRouteJumpConfig<Mete> = {method: "navigateTo"};
 
-    constructor(url?: string) {
+    private meta?: Partial<simpleRouteMeta> = {}
+
+    constructor(url?: string, meta?: Partial<simpleRouteMeta>) {
         super();
+        this.meta = {...meta, instance: this}
         this.setUrl(url);
+        this.addRouterMap(url || '')
+    }
+
+    private addRouterMap(url: string) {
+        if (!url?.trim()?.length) return
+        if (routerMap.has(url)) return
+        routerMap.set(url, this.meta || {})
+    }
+
+
+    getRouters() {
+        return routerMap
     }
 
     /**
@@ -118,7 +156,8 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "na
      * @returns {this}
      */
     setUrl(url?: string): this {
-        this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, url };
+        this.simpleRouteJumpConfig = {...this.simpleRouteJumpConfig, url};
+        this.addRouterMap(url || '')
         return this;
     }
 
@@ -141,7 +180,7 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "na
      *
      */
     setMethod<M extends jumpMethodName>(method?: M): SimpleRouteJump<Mete, M> {
-        this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, method: method || "navigateTo" };
+        this.simpleRouteJumpConfig = {...this.simpleRouteJumpConfig, method: method || "navigateTo"};
         // @ts-ignore
         return this;
     }
@@ -163,7 +202,7 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "na
      */
     setPreJumpInterceptor(fn?: simpleRouteJumpConfig<Mete>["preJumpInterceptor"]) {
         if (!fn) return this;
-        this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, preJumpInterceptor: fn };
+        this.simpleRouteJumpConfig = {...this.simpleRouteJumpConfig, preJumpInterceptor: fn};
         return this;
     }
 
@@ -185,11 +224,53 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "na
      * @public
      */
     trigger(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, "url">) {
+        const from = getCurPage()
+        const toConfig = {...this.meta, ...options, ...this.simpleRouteJumpConfig}
+        // @ts-ignore
+        const beforeEach = defineSimpleRouteJumpConfig?.getBeforeEach?.()?.(toConfig, from);
+        if (typeof beforeEach === 'boolean') {
+            if (!beforeEach) return
+            this.triggerCore(options)
+            return
+        }
+        if (typeof beforeEach === 'string' && !(beforeEach as string)?.length) {
+            const route = routerMap.get(beforeEach);
+            if (route) {
+                route.instance?.trigger(options)
+                return
+            } else {
+                console?.error?.(`未找到name为${beforeEach}的路由配置`)
+                return
+            }
+        }
+        if (typeof beforeEach === 'object') {
+            const route = routerMap.get(beforeEach.name);
+            if (route) {
+                route.instance?.trigger({
+                    ...options, mete: {
+                        ...options?.mete,
+                        ...beforeEach?.mete
+                    }
+                })
+                return
+            } else {
+                console?.error?.(`未找到name为${beforeEach.name}的路由配置`)
+                return
+            }
+        }
+        this.triggerCore(options)
+
+    }
+
+    /**
+     * 跳转核心逻辑
+     */
+    private triggerCore(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, "url">) {
         if (this.simpleRouteJumpConfig.preJumpInterceptor) {
             const preJumpInterceptor = this.simpleRouteJumpConfig.preJumpInterceptor(options?.mete as Mete);
             if (preJumpInterceptor && typeof preJumpInterceptor === "object" && !Reflect.has(preJumpInterceptor as obj, "msg")) {
                 // @ts-ignore
-                return jumpMethodContainer[this.simpleRouteJumpConfig.method]({
+                return jumpMethodContainer[options?.temporaryRedirects || this.simpleRouteJumpConfig.method]({
                     ...this.callbackCollection, ...options,
                     url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete || {})}`
                 });
@@ -199,7 +280,7 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "na
         }
         if (!this.simpleRouteJumpConfig.preJumpInterceptor) {
             // @ts-ignore
-            return jumpMethodContainer[this.simpleRouteJumpConfig.method]({
+            return jumpMethodContainer[options?.temporaryRedirects || this.simpleRouteJumpConfig.method]({
                 ...this.callbackCollection, ...options,
                 url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete || {})}`
             });
@@ -216,7 +297,7 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = "na
      *
      */
     isCurRoute() {
-        const path =  `/${getCurRoutePage()}`
+        const path = `/${getCurRoutePage()}`
         return this.simpleRouteJumpConfig.url === path
     }
 
