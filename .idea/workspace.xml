@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/dts/features/enhanceRef/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/dts/features/env/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/dts/features/media/chooseVideo.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/dts/features/router/page.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/dts/features/router/router.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/dts/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/lib/features/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/lib/features/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/src/features/router/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/src/features/router/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/utils/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/wifi/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/wifi/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="d0fe2463-495d-4bb4-acf9-f1efde01c769" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +150,7 @@
       <workItem from="1716020494086" duration="240000" />
       <workItem from="1716080929169" duration="11000" />
       <workItem from="1717810170770" duration="1765000" />
-      <workItem from="1717811954091" duration="2617000" />
+      <workItem from="1717811954091" duration="2818000" />
     </task>
     <servers />
   </component>
