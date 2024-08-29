@@ -5,10 +5,10 @@
  * @Description: 配置路由全局参数
  * @FilePath: /memo28.uni/packages/utils/src/features/router/defineConfig.ts
  */
-import type {readingWritingSeparationUtilsType} from '@memo28/utils';
-import {simpleRouteJumpConfig, simpleRouteMeta, triggerOptions} from "./router";
-import {obj} from "@memo28/types";
-import {readingWritingSeparationDetor} from '@memo28/utils';
+import { obj } from "@memo28/types";
+import type { readingWritingSeparationUtilsType } from '@memo28/utils';
+import { readingWritingSeparationDetor } from '@memo28/utils';
+import { simpleRouteJumpConfig, simpleRouteMeta, triggerOptions } from "./router";
 
 
 export interface beforeEachReturns {

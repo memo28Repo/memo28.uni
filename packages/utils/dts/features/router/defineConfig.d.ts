@@ -1,7 +1,6 @@
-/// <reference types="@dcloudio/types" />
+import { obj } from "@memo28/types";
 import type { readingWritingSeparationUtilsType } from '@memo28/utils';
 import { simpleRouteJumpConfig, simpleRouteMeta, triggerOptions } from "./router";
-import { obj } from "@memo28/types";
 export interface beforeEachReturns {
     name: string;
     /**

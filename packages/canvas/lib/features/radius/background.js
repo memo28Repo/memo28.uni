@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.drawRoundBackground = void 0;
+exports.drawRoundBackground = drawRoundBackground;
 /**
  *
  * 绘制圆角背景
@@ -37,4 +37,3 @@ function drawRoundBackground(ctx, x, y, width, height, radiusTL, radiusTR, radiu
     ctx.fill();
     ctx.restore();
 }
-exports.drawRoundBackground = drawRoundBackground;

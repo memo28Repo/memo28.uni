@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getErrMsg = exports.errMsg = exports.ERR_CODE = void 0;
+exports.errMsg = exports.ERR_CODE = void 0;
+exports.getErrMsg = getErrMsg;
 exports.ERR_CODE = {
     NORMAL: 0
 };
@@ -23,4 +24,3 @@ exports.errMsg = {
 function getErrMsg(code) {
     return exports.errMsg[code];
 }
-exports.getErrMsg = getErrMsg;

@@ -1,4 +1,3 @@
-/// <reference types="@dcloudio/types" />
 interface defineConfigTypes {
     debugger?: boolean;
     wifiFailToast?(opt: UniNamespace.WifiError): void;

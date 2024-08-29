@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.drawRoundImage = void 0;
+exports.drawRoundImage = drawRoundImage;
 /**
  *
  * 绘制圆角图片的函数
@@ -39,4 +39,3 @@ function drawRoundImage(ctx, img, x, y, width, height, radiusTL, radiusTR, radiu
     ctx.drawImage(img, x, y, width, height);
     ctx.restore();
 }
-exports.drawRoundImage = drawRoundImage;

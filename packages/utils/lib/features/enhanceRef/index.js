@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useEnhanceRef = void 0;
+exports.useEnhanceRef = useEnhanceRef;
 const vue_1 = require("vue");
 /**
  *
@@ -18,4 +18,3 @@ function useEnhanceRef(val, opt) {
     }
     return [value, setValue];
 }
-exports.useEnhanceRef = useEnhanceRef;

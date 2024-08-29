@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMac = void 0;
+exports.getMac = getMac;
 const initWifi_1 = require("./initWifi");
 /**
  *
@@ -25,4 +25,3 @@ function getMac() {
         });
     });
 }
-exports.getMac = getMac;

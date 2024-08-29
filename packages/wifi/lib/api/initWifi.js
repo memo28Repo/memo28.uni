@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stopWifi = exports.initWifi = exports.wifiFail = void 0;
+exports.wifiFail = wifiFail;
+exports.initWifi = initWifi;
+exports.stopWifi = stopWifi;
 /*
  * @Author: @memo28.repo
  * @Date: 2023-12-24 23:35:47
@@ -24,7 +26,6 @@ function wifiFail(err) {
         duration: 3000,
     });
 }
-exports.wifiFail = wifiFail;
 function initWifi() {
     return new Promise((resolve, reject) => {
         (0, utils_1.inApp)(() => {
@@ -42,7 +43,6 @@ function initWifi() {
         });
     });
 }
-exports.initWifi = initWifi;
 function initWifiCore() {
     return new Promise((resolve, reject) => {
         // 如果已初始化成功则直接跳过当前逻辑
@@ -106,7 +106,6 @@ function stopWifi() {
         });
     });
 }
-exports.stopWifi = stopWifi;
 function stopWifiCore() {
     return new Promise((resolve, reject) => {
         uni.stopWifi({

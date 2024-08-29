@@ -1,4 +1,3 @@
-/// <reference types="@dcloudio/types" />
 import { obj } from "@memo28/types";
 /**
  *

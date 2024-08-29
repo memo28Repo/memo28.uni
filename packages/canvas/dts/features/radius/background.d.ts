@@ -1,4 +1,3 @@
-/// <reference types="@dcloudio/types" />
 /**
  *
  * 绘制圆角背景

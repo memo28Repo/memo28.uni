@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.inWx = exports.notInWx = exports.notInApp = exports.inApp = exports.notInH5Fn = exports.inH5Fn = void 0;
+exports.inH5Fn = inH5Fn;
+exports.notInH5Fn = notInH5Fn;
+exports.inApp = inApp;
+exports.notInApp = notInApp;
+exports.notInWx = notInWx;
+exports.inWx = inWx;
 /**
  * 在 H5 环境下，调用传入的函数并返回结果。
  *
@@ -15,7 +20,6 @@ function inH5Fn(fn) {
     return fn();
     // #endif
 }
-exports.inH5Fn = inH5Fn;
 /**
  * H5外部函数才会执行
  *
@@ -30,7 +34,6 @@ function notInH5Fn(fn) {
     return fn();
     // #endif
 }
-exports.notInH5Fn = notInH5Fn;
 /**
  * 在 app 环境下才会被执行的函数
  *
@@ -46,7 +49,6 @@ function inApp(fn) {
     return fn();
     // #endif
 }
-exports.inApp = inApp;
 /**
  * 在 app外 环境下才会被执行的函数
  *
@@ -62,7 +64,6 @@ function notInApp(fn) {
     return fn();
     // #endif
 }
-exports.notInApp = notInApp;
 /**
  * 在 wx外 环境下才会被执行的函数
  *
@@ -78,7 +79,6 @@ function notInWx(fn) {
     return fn();
     // #endif
 }
-exports.notInWx = notInWx;
 /**
  * 在 wx 环境下才会被执行的函数
  *
@@ -94,4 +94,3 @@ function inWx(fn) {
     return fn();
     // #endif
 }
-exports.inWx = inWx;

@@ -1,5 +1,11 @@
 # @memo28.uni/utils
 
+## 0.0.4
+
+### Patch Changes
+
+- update @memo28/utils version to latest
+
 ## 0.0.3
 
 ### Patch Changes

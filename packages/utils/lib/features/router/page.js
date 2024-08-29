@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCurRoutePage = exports.addMethodToCurrentExample = exports.getCurPage = exports.getPrevPageInstance = exports.getCurrentParams = void 0;
+exports.getCurrentParams = getCurrentParams;
+exports.getPrevPageInstance = getPrevPageInstance;
+exports.getCurPage = getCurPage;
+exports.addMethodToCurrentExample = addMethodToCurrentExample;
+exports.getCurRoutePage = getCurRoutePage;
 /**
  *
  * 获取当前路由参数
@@ -17,7 +21,6 @@ function getCurrentParams() {
     // @ts-ignore
     return ((_a = getCurPage()) === null || _a === void 0 ? void 0 : _a.options) ? (_b = getCurPage()) === null || _b === void 0 ? void 0 : _b.options : (_d = (_c = getCurPage()) === null || _c === void 0 ? void 0 : _c.$page) === null || _d === void 0 ? void 0 : _d.options;
 }
-exports.getCurrentParams = getCurrentParams;
 /**
  *
  * 默认获取上一个页面实例
@@ -43,7 +46,6 @@ function getPrevPageInstance(n) {
     // @ts-ignore
     return page[page.length - (n ? n + 1 : 2)];
 }
-exports.getPrevPageInstance = getPrevPageInstance;
 /**
  *
  * 获取当前页面实例
@@ -61,7 +63,6 @@ function getCurPage() {
     // @ts-ignore
     return page[page.length - 1];
 }
-exports.getCurPage = getCurPage;
 /**
  *
  * 向当前页面中添加属性
@@ -93,7 +94,6 @@ function addMethodToCurrentExample(obj) {
         Reflect.set(getCurPage(), key, el);
     }
 }
-exports.addMethodToCurrentExample = addMethodToCurrentExample;
 /**
  *
  * 获取当前页面地址
@@ -105,4 +105,3 @@ function getCurRoutePage() {
     var _a, _b, _c, _d;
     return ((_b = (_a = getCurPage()) === null || _a === void 0 ? void 0 : _a.$vm) === null || _b === void 0 ? void 0 : _b.route) || ((_d = (_c = getCurPage()) === null || _c === void 0 ? void 0 : _c.$vm) === null || _d === void 0 ? void 0 : _d.__route__);
 }
-exports.getCurRoutePage = getCurRoutePage;

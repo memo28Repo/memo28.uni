@@ -13,9 +13,9 @@ exports.defineSimpleRouteJumpConfig = exports.DefineSimpleRouteJumpConfig = void
 const utils_1 = require("@memo28/utils");
 class DefineSimpleRouteJumpConfig {
 }
+exports.DefineSimpleRouteJumpConfig = DefineSimpleRouteJumpConfig;
 __decorate([
     utils_1.readingWritingSeparationDetor,
     __metadata("design:type", Function)
 ], DefineSimpleRouteJumpConfig.prototype, "beforeEach", void 0);
-exports.DefineSimpleRouteJumpConfig = DefineSimpleRouteJumpConfig;
 exports.defineSimpleRouteJumpConfig = new DefineSimpleRouteJumpConfig();

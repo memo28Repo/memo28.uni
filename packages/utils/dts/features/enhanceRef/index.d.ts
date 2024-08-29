@@ -15,7 +15,7 @@ interface useEnhanceRefOpt<T = unknown> {
  * @public
  *
  */
-declare type useEnhanceRefReturnTypes<T = unknown> = [Ref<UnwrapRef<T>>, (newValue: UnwrapRef<T>) => void];
+type useEnhanceRefReturnTypes<T = unknown> = [Ref<UnwrapRef<T>>, (newValue: UnwrapRef<T>) => void];
 /**
  *
  * 增强ref

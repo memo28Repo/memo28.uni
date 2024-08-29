@@ -9,7 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.compareMACAddressGroup = exports.compareMACAddress = void 0;
+exports.compareMACAddress = compareMACAddress;
+exports.compareMACAddressGroup = compareMACAddressGroup;
 const getMac_1 = require("./getMac");
 const utils_1 = require("@memo28/utils");
 /**
@@ -32,7 +33,6 @@ function compareMACAddress(mac) {
         });
     });
 }
-exports.compareMACAddress = compareMACAddress;
 /**
  *
  * 对比 mac 组 返回 匹配上的 mac 数组
@@ -52,4 +52,3 @@ function compareMACAddressGroup(macGroup) {
         return group;
     });
 }
-exports.compareMACAddressGroup = compareMACAddressGroup;
